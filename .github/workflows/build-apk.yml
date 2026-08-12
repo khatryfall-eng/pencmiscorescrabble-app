@@ -34,7 +34,11 @@ jobs:
 
       - name: Synchroniser le projet Android
         run: npx cap sync android
-
+        
+      - name: Rendre gradlew exécutable
+        working-directory: android
+        run: chmod +x gradlew
+        
       - name: Compiler l'APK (debug)
         working-directory: android
         run: ./gradlew assembleDebug --no-daemon
